@@ -848,12 +848,12 @@ select.form-control {
 .hero__title {
   font-size: var(--font-size-4xl);
   margin-bottom: var(--space-16);
-  color: var(--color-text);
+  color: white;
 }
 
 .hero__subtitle {
   font-size: var(--font-size-xl);
-  color: var(--color-text-secondary);
+  color: white;
   margin-bottom: var(--space-32);
   line-height: var(--line-height-normal);
 }
