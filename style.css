@@ -1566,3 +1566,7 @@ select.form-control {
     height: auto !important;
     width: 100% !important;
 }
+#heroSearchBtn {
+  background: #28B455 !important;
+  color: #fff !important;
+}
