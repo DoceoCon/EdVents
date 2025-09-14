@@ -984,7 +984,8 @@ select.form-control {
 
 /* Stats Section */
 .stats {
-  background: var(--color-bg-1);
+  background: #18365C;
+  color: white;
 }
 
 .stats__grid {
