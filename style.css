@@ -964,7 +964,7 @@ select.form-control {
 
 .event-card__price {
   font-weight: var(--font-weight-bold);
-  color: var(--brand-secondary);
+  color: #18365C;
   font-size: var(--font-size-lg);
 }
 
