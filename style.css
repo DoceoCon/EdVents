@@ -1039,7 +1039,7 @@ select.form-control {
 
 /* Newsletter */
 .newsletter {
-  background: var(--brand-primary);
+  background: #18365C;
   color: white;
   text-align: center;
 }
