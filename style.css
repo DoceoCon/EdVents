@@ -1570,3 +1570,13 @@ select.form-control {
   background: #28B455 !important;
   color: #fff !important;
 }
+.btn--primary {
+  background: #28B455 !important;
+  color: #fff !important;
+}
+.btn--primary:hover {
+  background: #36c668 !important;
+}
+.btn--primary:active {
+  background: #208f43 !important;
+}
