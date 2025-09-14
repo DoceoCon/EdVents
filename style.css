@@ -1367,7 +1367,7 @@ select.form-control {
 .event-detail__price {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
-  color: var(--brand-secondary);
+  color: #18365C;
   text-align: center;
   margin-bottom: var(--space-16);
 }
