@@ -998,13 +998,13 @@ select.form-control {
 .stat__number {
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
-  color: var(--brand-primary);
+  color: white;
   margin-bottom: var(--space-8);
 }
 
 .stat__label {
   font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
+  color: white;
 }
 
 /* Value Propositions */
