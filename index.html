@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdVents: The Educator Events Exchange</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__brand">
+                    <h1 class="logo">EdVents</h1>
+                    <p class="tagline">The Educator Events Exchange</p>
+                </div>
+                <nav class="nav" id="mainNav">
+                    <ul class="nav__list">
+                        <li><a href="#home" class="nav__link active">Home</a></li>
+                        <li><a href="#browse" class="nav__link">Browse Events</a></li>
+                        <li><a href="#organisers" class="nav__link">For Organisers</a></li>
+                        <li><a href="#about" class="nav__link">About</a></li>
+                    </ul>
+                </nav>
+                <div class="header__actions">
+                    <button class="btn btn--outline" id="findEventsBtn">Find Events</button>
+                    <button class="btn btn--primary" id="listEventBtn">List Your Event</button>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Homepage -->
+    <section id="home" class="section hero">
+        <div class="container">
+            <div class="hero__content">
+                <h2 class="hero__title">Discover Educational Events That Inspire</h2>
+                <p class="hero__subtitle">Connect with the UK's leading educational conferences, workshops, and training opportunities</p>
+                <div class="hero__search">
+                    <input type="text" placeholder="Search events, topics, or locations..." class="search-input" id="heroSearch">
+                    <button class="btn btn--primary search-btn" id="heroSearchBtn">Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Events -->
+    <section class="section featured-events">
+        <div class="container">
+            <h3 class="section__title">Featured Events</h3>
+            <div class="events-grid" id="featuredEventsGrid">
+                <!-- Featured events will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats">
+        <div class="container">
+            <div class="stats__grid">
+                <div class="stat">
+                    <div class="stat__number">250+</div>
+                    <div class="stat__label">Events Listed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat__number">30+</div>
+                    <div class="stat__label">Event Publishers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat__number">15,000+</div>
+                    <div class="stat__label">Educators Reached</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Propositions -->
+    <section class="section value-props">
+        <div class="container">
+            <h3 class="section__title">Why Choose EdVents?</h3>
+            <div class="value-props__grid">
+                <div class="value-prop">
+                    <div class="value-prop__icon">📚</div>
+                    <h4>For Educators</h4>
+                    <p>Discover professional development opportunities tailored to your needs</p>
+                </div>
+                <div class="value-prop">
+                    <div class="value-prop__icon">🏢</div>
+                    <h4>For Organisations</h4>
+                    <p>Reach thousands of engaged educators with your events and training</p>
+                </div>
+                <div class="value-prop">
+                    <div class="value-prop__icon">🌐</div>
+                    <h4>For Everyone</h4>
+                    <p>Access both in-person and virtual events across the UK</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section newsletter">
+        <div class="container">
+            <div class="newsletter__content">
+                <h3>Stay Updated</h3>
+                <p>Get the latest educational events delivered to your inbox</p>
+                <form class="newsletter__form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" class="form-control newsletter__input" required>
+                    <button type="submit" class="btn btn--primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Browse Events Page -->
+    <section id="browse" class="section browse-events hidden">
+        <div class="container">
+            <h2 class="section__title">Browse Events</h2>
+            <div class="browse__layout">
+                <aside class="browse__sidebar">
+                    <div class="filters">
+                        <h4>Filter Events</h4>
+                        
+                        <div class="filter-group">
+                            <label class="form-label">Date Range</label>
+                            <select class="form-control" id="dateFilter">
+                                <option value="">Any time</option>
+                                <option value="thisWeek">This week</option>
+                                <option value="thisMonth">This month</option>
+                                <option value="nextMonth">Next month</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="form-label">Event Type</label>
+                            <select class="form-control" id="typeFilter">
+                                <option value="">All types</option>
+                                <option value="Conference">Conference</option>
+                                <option value="Workshop">Workshop</option>
+                                <option value="Webinar">Webinar</option>
+                                <option value="Training">Training</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="form-label">Subject Area</label>
+                            <select class="form-control" id="subjectFilter">
+                                <option value="">All subjects</option>
+                                <option value="STEM">STEM</option>
+                                <option value="Leadership">Leadership</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Inclusion">Inclusion</option>
+                                <option value="Assessment">Assessment</option>
+                                <option value="Wellbeing">Wellbeing</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="form-label">Format</label>
+                            <select class="form-control" id="formatFilter">
+                                <option value="">All formats</option>
+                                <option value="In-person">In-person</option>
+                                <option value="Virtual">Virtual</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="form-label">Audience</label>
+                            <select class="form-control" id="audienceFilter">
+                                <option value="">All audiences</option>
+                                <option value="Teachers">Teachers</option>
+                                <option value="Leaders">Leaders</option>
+                                <option value="Students">Students</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn--secondary btn--full-width" id="clearFilters">Clear Filters</button>
+                    </div>
+                </aside>
+
+                <main class="browse__main">
+                    <div class="browse__controls">
+                        <div class="search-bar">
+                            <input type="text" placeholder="Search events..." class="form-control" id="eventSearch">
+                            <button class="btn btn--primary" id="searchBtn">Search</button>
+                        </div>
+                        <div class="sort-controls">
+                            <label for="sortEvents">Sort by:</label>
+                            <select class="form-control" id="sortEvents">
+                                <option value="date">Date</option>
+                                <option value="title">Title</option>
+                                <option value="price">Price</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="events-grid" id="eventsGrid">
+                        <!-- Events will be populated by JavaScript -->
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Organisers Page -->
+    <section id="organisers" class="section organisers-page hidden">
+        <div class="container">
+            <div class="organisers__hero">
+                <h2>Partner with EdVents</h2>
+                <p>Reach thousands of engaged educators across the UK</p>
+            </div>
+
+            <div class="organisers__content">
+                <div class="packages">
+                    <h3>Advertising Packages</h3>
+                    <div class="packages__grid">
+                        <div class="package card">
+                            <div class="card__body">
+                                <h4>Basic Listing</h4>
+                                <div class="package__price">£50/event</div>
+                                <ul class="package__features">
+                                    <li>Event listing</li>
+                                    <li>Basic details</li>
+                                    <li>Contact information</li>
+                                    <li>30-day visibility</li>
+                                </ul>
+                                <button class="btn btn--outline btn--full-width">Choose Basic</button>
+                            </div>
+                        </div>
+                        
+                        <div class="package card">
+                            <div class="card__body">
+                                <h4>Featured Event</h4>
+                                <div class="package__price">£120/event</div>
+                                <ul class="package__features">
+                                    <li>Everything in Basic</li>
+                                    <li>Featured placement</li>
+                                    <li>Event image</li>
+                                    <li>Priority in search</li>
+                                </ul>
+                                <button class="btn btn--primary btn--full-width">Choose Featured</button>
+                            </div>
+                        </div>
+                        
+                        <div class="package card">
+                            <div class="card__body">
+                                <h4>Premium Partner</h4>
+                                <div class="package__price">£300/month</div>
+                                <ul class="package__features">
+                                    <li>Unlimited events</li>
+                                    <li>Homepage banner</li>
+                                    <li>Newsletter inclusion</li>
+                                    <li>Analytics dashboard</li>
+                                </ul>
+                                <button class="btn btn--primary btn--full-width">Choose Premium</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials">
+                    <h3>Success Stories</h3>
+                    <div class="testimonials__grid">
+                        <div class="testimonial card">
+                            <div class="card__body">
+                                <blockquote>"EdVents helped us reach 300+ teachers for our STEM conference. Excellent platform!"</blockquote>
+                                <cite>- Sarah Johnson, Education Innovation Ltd</cite>
+                            </div>
+                        </div>
+                        <div class="testimonial card">
+                            <div class="card__body">
+                                <blockquote>"The featured event package doubled our registration rate. Highly recommended!"</blockquote>
+                                <cite>- Michael Brown, School Leaders Network</cite>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-section">
+                    <h3>Get Started Today</h3>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label">Organisation Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Contact Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Package Interest</label>
+                            <select class="form-control" required>
+                                <option value="">Select a package</option>
+                                <option value="basic">Basic Listing</option>
+                                <option value="featured">Featured Event</option>
+                                <option value="premium">Premium Partner</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="4" placeholder="Tell us about your events..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Send Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="section about-page hidden">
+        <div class="container">
+            <h2>About EdVents</h2>
+            <div class="about__content">
+                <p>EdVents is the UK's premier platform for educational events, connecting educators with professional development opportunities that matter.</p>
+                <p>Founded by educators, for educators, we understand the importance of continuous learning and professional growth in the education sector.</p>
+                <div class="about__mission">
+                    <h3>Our Mission</h3>
+                    <p>To make quality educational events accessible to every educator, regardless of location or budget.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Detail Modal -->
+    <div class="modal hidden" id="eventModal">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content">
+            <button class="modal__close" id="closeModal" aria-label="Close modal">&times;</button>
+            <div class="event-detail" id="eventDetail">
+                <!-- Event details will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <h4>EdVents</h4>
+                    <p>The Educator Events Exchange</p>
+                </div>
+                <div class="footer__links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#browse">Browse Events</a></li>
+                        <li><a href="#organisers">For Organisers</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer__contact">
+                    <h5>Contact</h5>
+                    <p>hello@edvents.co.uk</p>
+                    <p>0800 123 4567</p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 EdVents. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
