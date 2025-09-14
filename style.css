@@ -835,7 +835,7 @@ select.form-control {
 
 /* Hero Section */
 .hero {
-  background: var(--color-bg-1);
+  background: #18365C;
   padding: var(--space-32) 0;
   text-align: center;
 }
