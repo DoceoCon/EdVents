@@ -978,7 +978,7 @@ select.form-control {
 }
 
 .event-tag--featured {
-  background: var(--brand-secondary);
+  background: #28B455;
   color: white;
 }
 
