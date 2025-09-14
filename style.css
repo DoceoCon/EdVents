@@ -1373,7 +1373,7 @@ select.form-control {
 
 /* Footer */
 .footer {
-  background: var(--brand-primary);
+  background: #18365C;
   color: white;
   padding: var(--space-32) 0 var(--space-16);
 }
