@@ -1562,8 +1562,7 @@ select.form-control {
   }
 }
 .site-logo {
-    height: 40px;
-    width: auto;
-    display: block;
-    margin-right: 10px;
+    max-width: 240px !important;
+    height: auto !important;
+    width: 100% !important;
 }
