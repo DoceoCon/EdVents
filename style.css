@@ -1126,18 +1126,19 @@ select.form-control {
   text-align: center;
   margin-bottom: var(--space-32);
   padding: var(--space-32) 0;
-  background: var(--color-bg-2);
+  background: #18365C;
   border-radius: var(--radius-lg);
+  color: white;
 }
 
 .organisers__hero h2 {
-  color: var(--brand-primary);
+  color: white;
   margin-bottom: var(--space-12);
 }
 
 .organisers__hero p {
   font-size: var(--font-size-xl);
-  color: var(--color-text-secondary);
+  color: white;
 }
 
 .packages {
