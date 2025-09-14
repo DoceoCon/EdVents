@@ -1561,3 +1561,9 @@ select.form-control {
     padding: var(--space-16);
   }
 }
+.site-logo {
+    height: 60px;
+    width: auto;
+    display: block;
+    margin-right: 16px;
+}
