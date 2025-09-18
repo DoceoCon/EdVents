@@ -1,118 +1,25 @@
 // EdVents Application JavaScript
 
 // Event data
-const eventsData = {
-  "events": [
-    {
-      "id": 1,
-      "title": "Future of STEM Education Conference 2025",
-      "organiser": "Education Innovation Ltd",
-      "date": "2025-10-15",
-      "time": "09:00-17:00",
-      "location": "London Excel Centre",
-      "format": "In-person",
-      "type": "Conference",
-      "subject": "STEM",
-      "audience": "Teachers",
-      "price": "£195",
-      "image": "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=400",
-      "description": "Join leading educators and innovators to explore cutting-edge approaches to STEM teaching. Discover new technologies, methodologies, and resources that will transform your classroom.",
-      "agenda": ["Keynote: AI in Education", "Workshop: Coding for Primary", "Panel: Future Skills", "Networking Lunch"],
-      "speakers": ["Dr. Sarah Mitchell", "Prof. James Chen", "Maria Rodriguez"],
-      "featured": true
-    },
-    {
-      "id": 2,
-      "title": "Leadership in Schools Masterclass",
-      "organiser": "School Leaders Network",
-      "date": "2025-09-28",
-      "time": "10:00-16:00",
-      "location": "Online",
-      "format": "Virtual",
-      "type": "Workshop",
-      "subject": "Leadership",
-      "audience": "Leaders",
-      "price": "£125",
-      "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400",
-      "description": "Develop essential leadership skills for modern educational environments. Learn strategies for team management, change implementation, and building school culture.",
-      "agenda": ["Strategic Planning", "Team Dynamics", "Change Management", "Q&A Session"],
-      "speakers": ["Helen Thompson", "David Park"],
-      "featured": true
-    },
-    {
-      "id": 3,
-      "title": "Digital Literacy for Primary Teachers",
-      "organiser": "TechEd Solutions",
-      "date": "2025-10-08",
-      "time": "14:00-17:00",
-      "location": "Manchester",
-      "format": "In-person",
-      "type": "Training",
-      "subject": "Technology",
-      "audience": "Teachers",
-      "price": "£85",
-      "image": "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400",
-      "description": "Practical training session covering essential digital tools and platforms for primary education. Hands-on experience with classroom technology.",
-      "agenda": ["Interactive Whiteboards", "Educational Apps", "Online Safety", "Assessment Tools"],
-      "speakers": ["Alex Johnson", "Emma Davis"],
-      "featured": false
-    },
-    {
-      "id": 4,
-      "title": "Inclusive Education Summit",
-      "organiser": "Diversity in Learning",
-      "date": "2025-11-12",
-      "time": "09:30-16:30",
-      "location": "Birmingham",
-      "format": "In-person",
-      "type": "Conference",
-      "subject": "Inclusion",
-      "audience": "Teachers",
-      "price": "£165",
-      "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400",
-      "description": "Comprehensive summit focusing on creating inclusive learning environments for all students. Best practices, case studies, and practical strategies.",
-      "agenda": ["Opening Keynote", "Breakout Sessions", "Panel Discussion", "Action Planning"],
-      "speakers": ["Dr. Priya Patel", "Michael Brown", "Lisa Wong"],
-      "featured": true
-    },
-    {
-      "id": 5,
-      "title": "Assessment and Feedback Webinar Series",
-      "organiser": "Assessment Excellence",
-      "date": "2025-09-30",
-      "time": "19:00-20:30",
-      "location": "Online",
-      "format": "Virtual",
-      "type": "Webinar",
-      "subject": "Assessment",
-      "audience": "Teachers",
-      "price": "Free",
-      "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400",
-      "description": "Monthly webinar series exploring innovative assessment strategies and effective feedback techniques for improved student outcomes.",
-      "agenda": ["Formative Assessment", "Peer Review", "Digital Feedback", "Live Q&A"],
-      "speakers": ["Rachel Green", "Tom Wilson"],
-      "featured": false
-    },
-    {
-      "id": 6,
-      "title": "Mental Health in Schools Workshop",
-      "organiser": "Wellbeing Education Group",
-      "date": "2025-10-20",
-      "time": "13:00-17:00",
-      "location": "Leeds",
-      "format": "In-person",
-      "type": "Workshop",
-      "subject": "Wellbeing",
-      "audience": "Teachers",
-      "price": "£95",
-      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400",
-      "description": "Essential workshop for educators on recognising, supporting, and promoting mental health and wellbeing in educational settings.",
-      "agenda": ["Understanding Mental Health", "Support Strategies", "Creating Safe Spaces", "Resources and Referrals"],
-      "speakers": ["Dr. Jane Foster", "Mark Stevens"],
-      "featured": false
-    }
-  ]
-};
+// Global variable to store events data
+let eventsData = { events: [] };
+
+// Fetch events from JSON file
+fetch('uk-education-events-2025-2026.json')
+  .then(response => response.json())
+  .then(data => {
+    eventsData = data; // Store the fetched data
+    currentEvents = eventsData.events; // Update current events
+    
+    // Initialize displays after data is loaded
+    displayFeaturedEvents();
+    displayAllEvents();
+  })
+  .catch(error => {
+    console.error('Error loading events:', error);
+    // Fallback to empty array if fetch fails
+    eventsData = { events: [] };
+  });
 
 // Application state
 let currentEvents = eventsData.events;
