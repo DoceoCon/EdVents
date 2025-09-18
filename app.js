@@ -210,23 +210,21 @@ function createEventCard(event) {
     month: 'short',
     year: 'numeric'
   });
-  
   return `
     <div class="event-card" data-event-id="${event.id}">
-      <img src="${event.image}" alt="${event.title}" class="event-card__image" loading="lazy">
+      <img src="default-image.jpg" alt="Event image for ${event.event_name}" class="event-card__image" loading="lazy">
       <div class="event-card__content">
-        <h4 class="event-card__title">${event.title}</h4>
+        <h4 class="event-card__title">${event.event_name || 'Untitled Event'}</h4>
         <div class="event-card__meta">
           <span>📅 ${formattedDate}</span>
-          <span>📍 ${event.location}</span>
-          <span>👥 ${event.audience}</span>
+          <span>📍 ${event.location || 'Location TBA'}</span>
+          <span>👥 ${event.target_audience || 'All audiences'}</span>
         </div>
-        <p class="event-card__description">${truncateText(event.description, 120)}</p>
+        <p class="event-card__description">${truncateText(event.description || '', 120)}</p>
         <div class="event-card__footer">
-          <div class="event-card__price">${event.price}</div>
+          <div class="event-card__price">${event.ticket_prices?.general || 'TBA'}</div>
           <div class="event-tags">
-            <span class="event-tag">${event.type}</span>
-            ${event.featured ? '<span class="event-tag event-tag--featured">Featured</span>' : ''}
+            <span class="event-tag">${event.category || ''}</span>
           </div>
         </div>
       </div>
