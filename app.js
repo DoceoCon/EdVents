@@ -276,39 +276,41 @@ function applyFilters() {
   };
   
   // Filter events
-  currentEvents = eventsData.events.filter(event => {
-    // Search filter
-    if (currentFilters.search && !searchMatchesEvent(event, currentFilters.search)) {
-      return false;
-    }
-    
-    // Type filter
-    if (currentFilters.type && event.type !== currentFilters.type) {
-      return false;
-    }
-    
-    // Subject filter
-    if (currentFilters.subject && event.subject !== currentFilters.subject) {
-      return false;
-    }
-    
-    // Format filter
-    if (currentFilters.format && event.format !== currentFilters.format) {
-      return false;
-    }
-    
-    // Audience filter
-    if (currentFilters.audience && event.audience !== currentFilters.audience) {
-      return false;
-    }
-    
-    // Date filter
-    if (currentFilters.date && !dateMatchesFilter(event.date, currentFilters.date)) {
-      return false;
-    }
-    
-    return true;
-  });
+currentEvents = eventsData.events.filter(event => {
+  // Search filter
+  if (currentFilters.search && !searchMatchesEvent(event, currentFilters.search)) {
+    return false;
+  }
+  
+  // Type filter (map to category in JSON)
+  if (currentFilters.type && event.category !== currentFilters.type) {
+    return false;
+  }
+  
+  // Subject filter (map to subcategory in JSON)
+  if (currentFilters.subject && event.subcategory !== currentFilters.subject) {
+    return false;
+  }
+  
+  // Format filter (check venue_type for online/in-person)
+  if (currentFilters.format) {
+    const isOnline = event.venue_type === 'Online' || event.venue_type === 'Virtual Event Platform';
+    if (currentFilters.format === 'Virtual' && !isOnline) return false;
+    if (currentFilters.format === 'In-person' && isOnline) return false;
+  }
+  
+  // Audience filter
+  if (currentFilters.audience && !event.target_audience?.includes(currentFilters.audience)) {
+    return false;
+  }
+  
+  // Date filter
+  if (currentFilters.date && !dateMatchesFilter(event.date, currentFilters.date)) {
+    return false;
+  }
+  
+  return true;
+});
   
   displayAllEvents();
 }
