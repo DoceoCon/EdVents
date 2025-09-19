@@ -315,14 +315,13 @@ function applyFilters() {
 
 function searchMatchesEvent(event, searchTerm) {
   const searchFields = [
-    event.title,
-    event.organiser,
+    event.event_name,
+    event.organizer,
     event.location,
     event.description,
-    event.subject,
-    event.type
+    event.category,
+    event.target_audience
   ].join(' ').toLowerCase();
-  
   return searchFields.includes(searchTerm.toLowerCase());
 }
 
