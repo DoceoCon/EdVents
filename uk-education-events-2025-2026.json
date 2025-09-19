@@ -16,7 +16,7 @@
       "date": "2025-01-22",
       "end_date": "2025-01-22",
       "location": "Hackney Church, London",
-      "featured": true
+      "featured": true,
       "venue_type": "Church/Conference Centre",
       "category": "Leadership",
       "subcategory": "Faith Education",
@@ -40,7 +40,7 @@
       "date": "2025-01-22",
       "end_date": "2025-01-24",
       "location": "ExCeL London",
-      "featured": true
+      "featured": true,
       "venue_type": "Exhibition Centre",
       "category": "EdTech",
       "subcategory": "Technology Exhibition",
@@ -89,7 +89,7 @@
       "date": "2025-03-05",
       "end_date": "2025-03-05",
       "location": "Salford Community Stadium, Manchester",
-      "featured": true
+      "featured": true,
       "venue_type": "Stadium/Conference Centre",
       "category": "General Education",
       "subcategory": "Educational Innovation",
