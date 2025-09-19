@@ -405,54 +405,47 @@ function showEventDetail(eventId) {
   });
   
   elements.eventDetail.innerHTML = `
-    <img src="${event.image}" alt="${event.title}" class="event-detail__image">
+    <img src="default-image.jpg" alt="${event.event_name}" class="event-detail__image">
     <div class="event-detail__header">
-      <h3 class="event-detail__title">${event.title}</h3>
+      <h3 class="event-detail__title">${event.event_name}</h3>
       <div class="event-detail__meta">
         <div class="event-detail__meta-item">
           <strong>📅 Date:</strong> ${formattedDate}
         </div>
         <div class="event-detail__meta-item">
-          <strong>🕐 Time:</strong> ${event.time}
-        </div>
-        <div class="event-detail__meta-item">
           <strong>📍 Location:</strong> ${event.location}
         </div>
         <div class="event-detail__meta-item">
-          <strong>💻 Format:</strong> ${event.format}
+          <strong>🏢 Organiser:</strong> ${event.organizer}
         </div>
         <div class="event-detail__meta-item">
-          <strong>🏢 Organiser:</strong> ${event.organiser}
+          <strong>👥 Audience:</strong> ${event.target_audience}
         </div>
         <div class="event-detail__meta-item">
-          <strong>👥 Audience:</strong> ${event.audience}
+          <strong>📚 Category:</strong> ${event.category}
+        </div>
+        <div class="event-detail__meta-item">
+          <strong>⏰ CPD Hours:</strong> ${event.cpd_hours || 'TBA'}
         </div>
       </div>
     </div>
     
-    <div class="event-detail__price">${event.price}</div>
+    <div class="event-detail__price">${event.ticket_prices?.general || 'TBA'}</div>
     
     <div class="event-detail__description">
       <p>${event.description}</p>
     </div>
     
+    ${event.additional_notes ? `
     <div class="event-detail__section">
-      <h4>Agenda</h4>
-      <ul class="event-detail__agenda">
-        ${event.agenda.map(item => `<li>${item}</li>`).join('')}
-      </ul>
+      <h4>Additional Information</h4>
+      <p>${event.additional_notes}</p>
     </div>
-    
-    <div class="event-detail__section">
-      <h4>Speakers</h4>
-      <div class="event-detail__speakers">
-        ${event.speakers.map(speaker => `<span class="speaker-tag">${speaker}</span>`).join('')}
-      </div>
-    </div>
+    ` : ''}
     
     <div class="event-detail__actions">
       <button class="btn btn--primary btn--lg">Book Now</button>
-      <button class="btn btn--outline btn--lg">Get More Info</button>
+      ${event.website ? `<a href="${event.website}" target="_blank" class="btn btn--outline btn--lg">Visit Website</a>` : ''}
     </div>
   `;
   
